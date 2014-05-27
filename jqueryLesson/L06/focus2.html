@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>焦点图横向滚动</title>
+<style type="text/css">
+<!--
+img{border:0px;}
+.focus{width:490px; height:200px; background-color:#000; position:relative;}
+.focus ul{margin:0; padding:0; list-style-type:none;}
+.scrollArea {width:490px; height:170px; overflow:hidden;}
+.scrollArea img{float:left;}
+.num li{width:15px; height:15px; font-size:12px; text-align:center; background-color:#fff; line-height:15px; position:absolute; top:178px; cursor:pointer;}
+.num li.current {background-color: #FF0000;color: #FFFFFF;}
+-->
+</style>
+<script src="js/jquery.js" type="text/javascript"></script>
+<script type="text/javascript">
+
+var n,c = 0
+$(function(){
+	//初始化结构
+	n = $("#scrollArea img").size()
+	$(".focus ul").width(490 * n)
+	$("#num li").css("right",function(i,v){ return (n-i) * 18 + 0} )
+	$("#num li").eq(0).addClass("current")
+	//动画效果
+	$("#num li").click(function(){
+		c = $(this).index()//获取数值索引
+		$(this).addClass("current")
+		$(this).siblings().removeClass("current")
+		$("#scrollArea").stop(true,true).animate({scrollLeft:490 *c},300)//图片纵向滚动
+	})
+})
+
+</script>
+</head>
+
+<body>
+<div id="focus" class="focus">
+	<div id="scrollArea" class="scrollArea">
+		<ul>
+			<li><a href=""><img src="images/1.jpg"/></a></li>
+			<li><a href=""><img src="images/2.jpg"/></a></li>
+			<li><a href=""><img src="images/3.jpg"/></a></li>
+			<li><a href=""><img src="images/4.jpg"/></a></li>
+			<li><a href=""><img src="images/5.jpg"/></a></li>
+		</ul>
+	</div>
+	<ul class="num" id="num">
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+    </ul>
+</div>
+
+</body>
+</html>

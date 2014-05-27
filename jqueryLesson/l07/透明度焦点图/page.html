@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <style type="text/css">
+<!--
+.focus {
+	height: 360px;
+	width: 728px;
+	position: relative;
+}
+.bigPic {
+	height: 328px;
+	width: 728px;
+	overflow: hidden;
+}
+.focus ul {
+	margin: 0px;
+	padding: 0px;
+	list-style: none;
+}
+img {
+	border-width: 0px;
+	float:left;
+}
+.btns a {
+	line-height: 32px;
+	height: 32px;
+	width: 182px;
+	display: block;
+	font-size: 12px;
+	text-align: center;
+	background-color: #999999;
+	color: #FFFFFF;
+	text-decoration: none;
+	position: absolute;
+	top: 328px;
+}
+.btns a.current {
+	color: #FFFFFF;
+	background-color: #333333;
+}
+-->
+</style>
+<title>透明度焦点图</title>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" >
+var n,c = 0,wid
+function autoPlay(){//自动播放代码
+	/*c++
+	if(c >= n) c=0
+	$("#btns a").eq(c).addClass("current")
+	$("#btns a").eq(c).parent().siblings().children().removeClass("current")
+	$("#bigPic li").hide()
+	$("#bigPic li").eq(c).fadeTo(300,1)
+	*/
+	c++
+	if(c >= n) c=0
+	$("#btns a").eq(c).addClass("current")
+	$("#btns a").eq(c).parent().siblings().children().removeClass("current")
+	$("#bigPic").stop(true,true).animate({scrollTop:328 * c},300)
+}
+$(function(){
+	n = $("#bigPic img").size()
+	$("#btns a").css("left",function(i,v){ return 182 * i})
+	$("#btns a").eq(0).addClass("current")
+	$("#btns a").hover(
+		function(){
+			window.clearInterval(wid)//鼠标划入时清除定时队列
+			c = $(this).parent().index()
+			$(this).addClass("current")
+			$(this).parent().siblings().children().removeClass("current")
+			//$("#bigPic li").hide()
+			//$("#bigPic li").eq(c).fadeTo(300,1)
+			$("#bigPic").stop(true,true).animate({scrollTop:328 * c},300)
+		},
+		function(){
+			wid = window.setInterval("autoPlay()",2000)//重启定时队列
+		})
+		wid = window.setInterval("autoPlay()",2000)//首次开启定时队列
+})
+</script>
+</head>
+<body>
+ <div class="focus" id="focus">
+  <div class="bigPic" id="bigPic">
+     <ul>
+	   <li><a href=""><img src="images/b1.jpg" /></a></li>
+	   <li><a href=""><img src="images/b2.jpg" /></a></li>
+	   <li><a href=""><img src="images/b3.jpg" /></a></li>
+	   <li><a href=""><img src="images/b4.jpg" /></a></li>
+     </ul>
+  </div>
+
+   <ul class="btns" id="btns">
+	 <li><a href="">冬装派对 全场折起</a></li>
+	 <li><a href="">Euromodu冬装 限时特卖</a></li>
+	 <li><a href="">爆款特卖低至五折起</a></li>
+	 <li><a href="">college劲爆价 4.5折起</a></li>
+  </ul>
+</div>
+ </body>
+</html>

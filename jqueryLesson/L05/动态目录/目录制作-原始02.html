@@ -1,0 +1,197 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style type="text/css">
+.top {
+	height: 50px;
+	background-image: url(images/toplogobdivbg.gif);
+}
+body {
+	margin: 0px;
+	padding: 0px;
+}
+.mainBody {
+	height: auto!important;
+	min-height: 700px;
+	height: 700px;
+	width: 960px;
+	margin-right: auto;
+	margin-left: auto;
+}
+.mainBody::after{display:block;clear:both;content:"";visibility:hidden;height:0; }
+.leftMenu {
+	float: left;
+	height: auto!important;
+	min-height: 700px;
+	height: 700px;
+	width: 240px;
+	border-right: 1px solid #CCC;
+}
+.content {
+	float: left;
+	height: auto!important;
+	min-height: 700px;
+	height: 700px;
+	width: 679px;
+	padding: 20px;
+	font-size: 14px;
+	line-height: 30px;
+}
+.leftMenu h1 {
+	font-size: 16px;
+	line-height: 40px;
+	margin: 0px;
+	height: 40px;
+	background-image: url(images/bangzhuh1sign.gif);
+	background-repeat: no-repeat;
+	background-position: 30px center;
+	padding-top: 0px;
+	padding-right: 0px;
+	padding-bottom: 0px;
+	padding-left: 60px;
+	color: #F00;
+}
+.leftMenu h2 {
+	font-size: 14px;
+	line-height: 28px;
+	background-color: #FFE8A0;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 2px;
+	margin-left: 20px;
+	padding-left: 20px;
+	color: #A43C17;
+}
+.leftMenu ul {
+	margin: 0px;
+	padding: 0px;
+	list-style-type: none;
+	display: none;
+}
+.leftMenu li {
+	padding-left: 20px;
+}
+.leftMenu h3 {
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 2px;
+	margin-left: 20px;
+	font-size: 12px;
+	background-color: #FDF9D6;
+	line-height: 28px;
+	font-weight: normal;
+	color: #535353;
+	padding-top: 0px;
+	padding-right: 0px;
+	padding-bottom: 0px;
+	padding-left: 30px;
+	background-image: url(images/close.gif);
+	background-repeat: no-repeat;
+	background-position: 175px center;
+	cursor:pointer;
+}
+.leftMenu h3.open {
+	background-image: url(images/open.gif);
+}
+.leftMenu ul li a {
+	padding-left: 45px;
+	font-size: 12px;
+	text-decoration: none;
+	color: #0044DD;
+	background-image: url(images/square.gif);
+	display: block;
+	background-repeat: no-repeat;
+	background-position: 35px center;
+	width: 165px;
+	line-height: 28px;
+}
+.leftMenu ul li a:hover {
+	color: #F90;
+	background-image: url(images/squarehover.gif);
+}
+</style>
+<script type="text/javascript" src="js/jquery-1.4.js"></script>
+<script type="text/javascript">
+/*
+$(function(){
+	$(".leftMenu h3").click(function(){
+		$(this).toggleClass("open")
+		$(this).next().toggle()
+	})
+});
+*/
+$(function(){
+	//$(".leftMenu h3").first().addClass("open")//获取第一个h3元素，加类
+	//$(".leftMenu ul").eq(0).show()//获取第一个ul元素
+	$(".leftMenu h3").click(function(){
+		$(this).toggleClass("open")
+		$(this).siblings("h3").removeClass("open")//h3兄弟元素移除open
+		$(this).next().slideToggle()//h3下级元素动画
+		//$(this).next().siblings("ul").slideUp()	//h3下一级的兄弟元素ul上滑
+	})
+})
+</script>
+</head>
+
+<body>
+<div class="top"></div>
+<div class="mainBody">
+  <div class="leftMenu">
+    <h1>帮助中心</h1>
+    <h2>常见问题</h2>
+    <h2>帮助分类</h2>
+    <h3>账户管理</h3>
+    <ul>
+      <li><a href="#">注册与登录</a></li>
+      <li><a href="#">邮箱验证</a></li>
+      <li><a href="#">个人资料</a></li>
+      <li><a href="#">账户安全</a></li>
+    </ul>
+    <h3>教师帮助</h3>
+    <ul>
+      <li><a href="#">课程设置与定价</a></li>
+      <li><a href="#">认证</a></li>
+      <li><a href="#">试听课</a></li>
+      <li><a href="#">签约辅导</a></li>
+      <li><a href="#">发布可预约时间</a></li>
+      <li><a href="#">查询添加学生</a></li>
+      <li><a href="#">即时开课</a></li>
+      <li><a href="#">在线授课</a></li>
+      <li><a href="#">评价/反馈</a></li>
+      <li><a href="#">信用等级</a></li>
+      <li><a href="#">提现</a></li>
+    </ul>
+    <h3>学生帮助</h3>
+    <ul>
+      <li><a href="#">辅导需求管理</a></li>
+      <li><a href="#">找老师</a></li>
+      <li><a href="#">试听</a></li>
+      <li><a href="#">签约辅导</a></li>
+      <li><a href="#">预约</a></li>
+      <li><a href="#">在线上课</a></li>
+      <li><a href="#">评价/反馈</a></li>
+      <li><a href="#">充值与支付</a></li>
+    </ul>
+    <h3>工具安装与使用</h3>
+    <ul>
+      <li><a href="#">网上教学白板</a></li>
+      <li><a href="#">PEN-E智慧笔</a></li>
+      <li><a href="#">语音工具</a></li>
+    </ul>
+    <h3>24网上家教网规则</h3>
+    <ul>
+      <li><a href="#">服务条款</a></li>
+      <li><a href="#">用户积分规则</a></li>
+      <li><a href="#">教师信用积分规则</a></li>
+      <li><a href="#">争议处理规则</a></li>
+      <li><a href="#">收费模式</a></li>
+    </ul>
+  </div>
+  <div class="content">
+    <h3>大家好：</h3> 
+    <p>李乔波 2012 年1月22</p>
+</div></div>
+</body>
+</html>

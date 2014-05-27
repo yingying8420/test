@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style type="text/css">
+<!--
+body {
+	background-color: #000000;
+}
+ul {
+	margin: 0px;
+	padding: 0px;
+	list-style: none;
+}
+#navBar {
+	height: 43px;
+	width: 600px;
+}
+#navBar li {
+	padding-right: 10px;
+	float: left;
+	position: relative;
+	width: 28px;
+	height: 43px;
+}
+#navBar li a {
+	font-size: 0px;
+	line-height: 0px;
+	height: 28px;
+	width: 28px;
+	display: block;
+	background-image: url(images/icons.png);
+	background-repeat: no-repeat;
+	position: absolute;
+	left: 0px;
+	bottom: 0px;
+}
+.facebook-icon {
+	background-position: -5px 0px;
+}
+.twitter-icon {
+	background-position: -45px 0px;
+}
+.gplus-icon {
+	background-position: -85px 0px;
+}
+.rss-icon {
+	background-position: -124px 0px;
+}
+.dribbble-icon {
+	background-position: -164px 0px;
+}
+.vimeo-icon {
+	background-position: -204px 0px;
+}
+-->
+</style>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript">
+$(function(){
+   $("#navBar li a").fadeTo(0,0.5)
+   $("#navBar li a").hover(
+       function(){
+	      $(this).animate({"opacity":1,"padding-bottom":15},300)
+	   },
+	   function(){
+	      $(this).animate({"opacity":0.5,"padding-bottom":0},300)
+	   }
+   )
+   
+
+})
+</script>
+</head>
+
+<body>
+<div id="navBar" class="navBar">
+  <ul>
+    <li><a class="facebook-icon" href="#">Facebook</a></li>
+    <li><a class="twitter-icon" href="#">Twitter</a></li>
+    <li><a class="gplus-icon" href="#">Google+</a></li>
+    <li><a class="rss-icon" href="#">RSS</a></li>
+    <li><a class="dribbble-icon" href="#">dribbble</a></li>
+    <li><a class="vimeo-icon" href="#">Vimeo</a></li>
+  </ul>
+</div>
+
+</body>
+</html>

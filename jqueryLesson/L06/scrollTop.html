@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>滚动</title>
+<style type="text/css">
+<!--
+.box{width:300px; height:200px; background-color:#ffffcc; border:2px solid #ffcc33; overflow:hidden;margin-bottom:10px;}
+.box p{margin:10px; }
+-->
+</style>
+<script src="js/jquery.js" type="text/javascript"></script>
+<script type="text/javascript">
+<!--
+$(function(){
+	$("#down").click(function(){
+		$(".box").animate({scrollTop: "+=100"},300)
+	})
+    $("#up").click(function(){
+		$(".box").animate({scrollTop: "-=100"},300)
+	})
+})
+//-->
+</script>
+</head>
+
+<body>
+<div class="box">
+   <p>乐视在五棵松体育馆的“刷新4x4”发布会，将沉寂许久的智能电视概念再次炒得喧嚣尘上，这基本上成为了一种具有规律的现象：精彩的PPT和流利的演说，殉道的姿态和捭阖的雄心，媒体的热议和微博的刷屏，最终以限量抢购的形式收尾，售罄时间的数字奇迹出现得频繁而廉价，改变世界的豪情却消失在了温度渐凉的过程中。</p>
+   <p>先来谈谈客观问题。</p>
+   <p>智能电视始终是“大型家电”而非“消费电子”的类型产品，它既谈不上“皮肤的延伸”，也不构成“显摆的资本”，它或许可以算是一种基础性的需求，却很难被人爱不释手的发烧，隔着充当中介的遥控器，用户在电视屏幕上的操作仍然笨重而被动，这种停留在人机而非人人境界的交互场景让智能电视的困局有着许多硬件之外的干扰因素，以致于连带生产厂商都将搏斗设在了名为误区的泥潭中。</p>
+   <p>最棘手的课题在于，购买智能电视，实际上意味着选择了一种生活方式，而且这种生活方式颇有些反互联网的性质：它不碎片化——相反，使用电视的条件更为苛刻，需要专注、长时间和家庭环境作为前提；它也不怎么社会化——作为缺乏输入和互动接口的影像终端，即使被扣上了“智能”这顶帽子，当前阶段所有的智能电视产品都没有产生足以媲美“鼠标+键盘”形式的革命，无论是联网，还是点播，抑或通过盒子集成，都只是在修补传统电视的缺憾，用户的主动权远未得到真正的释放；至于传说中的互联网思维，包括快速迭代、全时在线、Web 2.0等特征，智能电视这项产品都没有承担多少。</p>
+</div>
+<input type="button" id="down" value="Down"/>
+<input type="button" id="up" value=" Up "/>
+</body>
+</html>

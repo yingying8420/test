@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style type="text/css">
+<!--
+.hide {
+	display: none;
+}
+.item {
+	height: 175px;
+	width: 312px;
+}
+.content {
+	height: 142px;
+	width: 310px;
+	border-right: 1px solid #F0F0F0;
+	border-bottom: 1px solid #F0F0F0;
+	border-left: 1px solid #F0F0F0;
+}
+.itemBar {
+	height: 30px;
+	width: 312px;
+	border-bottom: 2px solid #AAAAAA;
+	position: relative;
+}
+.itemBar ul {
+	margin: 0px;
+	padding: 0px;
+	list-style: none;
+}
+.itemBar li {
+	float: left;
+}
+.itemBar a {
+	text-decoration: none;
+	display: block;
+	height: 30px;
+	width: 78px;
+	font: 14px/26px "微软雅黑", "黑体";
+	text-align: center;
+	color: #333333;
+}
+#current {
+	position: absolute;
+	left: 0px;
+	bottom: -2px;
+}
+.itemBar a.current {
+	color: #E4393C;
+}
+-->
+</style>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript">
+var n,c = 0,wid
+function autoPlay(){
+	
+}
+$(function(){
+
+  $("#itemBar li a").hover(function(){
+
+      $(this).addClass("current")
+	  $(this).parent().siblings().children().removeClass("current")
+	  c = $(this).parent().index()
+	  $("#current").animate({"left":78 * c},300) 
+	  $("#content>div").hide()
+	  $("#content>div").eq(c).show()
+  },function(){
+		wid = window.setInterval("autoPlay")
+  }) 
+     wid = window.setInterval("autoPlay")
+})
+</script>
+</head>
+
+<body>
+<div class="item">
+  <div class="itemBar" id="itemBar">
+    <ul>
+      <li><a href="#" class="current">话费</a></li>
+      <li><a href="#">旅行</a></li>
+      <li><a href="#">彩票</a></li>
+      <li><a href="#">游戏</a></li>
+    </ul>
+    <img src="img/current.jpg" id="current" />
+  </div>
+  <!--内容块儿 -->
+  <div class="content" id="content">
+    <div class="contentBox"><img src="img/1.gif" /></div>
+    <div class="contentBox hide"><img src="img/2.gif" /></div>
+    <div class="contentBox hide"><img src="img/3.gif" /></div>
+    <div class="contentBox hide"><img src="img/4.gif" /></div>
+  </div>
+</div>
+</body>
+</html>

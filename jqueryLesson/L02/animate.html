@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+ <head>
+ <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+ <style type="text/css">
+	.box{width:200px;height:150px;border:solid 2px #006600;background-color:#00cc00}
+ </style>
+  <title>animate</title>
+  <script src="js/jquery.js" type="text/javascript"></script>
+  <script type="text/javascript">
+  <!--
+	$(function(){
+		$("#btn1").click(function(){
+			$(".box").animate({"width":800, "height":50},500);
+		})
+		$("#btn2").click(function(){
+			$(".box").animate({"width":200,"height":350},500);
+		})
+	})
+  //-->
+  </script>
+ </head>
+ <body>
+  <div class="box">
+  </div>
+  <input type="button" value="长" id="btn1"/>
+  <input type="button" value="短" id="btn2"/>
+ </body>
+</html>

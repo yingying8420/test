@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta id="" content="" charset="UTF-8"/>
+  <title>定时序列</title>
+  <script type="text/javascript">
+    var wid
+	function msg(){
+		alert(123)
+	}
+	function stopMag(){
+	    window.clearInterval(wid)//清除定时序列
+	}
+    function startMag(){
+		wid = window.setInterval("msg()",2000)//重启定时序列
+	}
+	wid = window.setInterval("msg()",1500)//首次启动定时序列
+  </script>
+ </head>
+ <body>
+  <button onclick="startMag()">Start/Restart</button>
+  <button onclick="stopMag()">Stop</button>
+ </body>
+</html>

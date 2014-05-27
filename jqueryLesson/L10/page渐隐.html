@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>菜单</title>
+  <style type="text/css">
+.menu { background-image: url(images/menuBg.jpg); height: 44px; width: 900px; padding-top: 18px; padding-left: 39px; }
+.menu ul { margin: 0px; padding: 0px; list-style: none; }
+.menu li { float: left; position: relative; }
+.menu ul ul { position: absolute; top: 37px; left: 0px; margin: 0px; padding: 0px; list-style: none; display: none; border: 2px solid #933; }
+.menu ul ul ul { position: absolute; left: 175px; z-index: 1000; display: none; top: 10px; }
+.menu li li { height: 32px; width: 190px; background: #BD1016; }
+.menu li li a { height: 30px; line-height: 30px; background: url(images/bgLine.gif) repeat-x center bottom; }
+.menu li a { display: block; height: 37px; color: #FFFFFF; text-decoration: none; font-size: 14px; padding-right: 20px; padding-left: 20px; line-height:37px;}
+.menu ul ul li a.hover { background: #960C13; }
+.menu li a.current { background-image: url(images/arrow.gif); background-repeat: no-repeat; background-position: center bottom; }
+  </style>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript">
+$(function(){
+	//一级菜单
+	$("#menu>ul>li:gt(0)").hover(
+	function(){
+		$(this).children("a").addClass("current")
+		$(this).children("ul").fadeTo(300,1)
+	},
+	function(){
+		$(this).children("a").removeClass("current")
+		$(this).children("ul").hide()
+	})
+	$("#menu ul ul li").hover(
+	function(){
+		$(this).children("a").addClass("hover")
+		$(this).children("ul").fadeTo(300,1)	
+		$(this).css("z-index",1000)
+	},function(){
+		$(this).children("a").removeClass("hover")
+		$(this).children("ul").hide()
+		$(this).css("z-index",10)
+	})
+})
+</script>
+ </head>
+ <body>	
+  <div class="menu" id="menu">
+  	<ul>
+  		<li><a href="#">主页</a></li>
+  		<li><a href="#" class="current">浏览器</a>
+        	<ul>
+                <li><a href="#">Opera解决方案</a></li>
+                <li><a href="#">电话解决方案</a></li>
+                <li><a href="#">Opera设备解决方案</a>
+                  <ul>
+                        <li><a href="#">Opera解决方案</a></li>
+                        <li><a href="#">电话解决方案</a></li>
+                        <li><a href="#">Opera设备解决方案</a></li>
+                        <li><a href="#">Opera11.00下载</a></li>
+                        <li><a href="#">移动电话访问</a></li>		
+                    </ul>
+                </li>
+                <li><a href="#">Opera11.00下载</a></li>
+                <li><a href="#">移动电话访问</a></li>		
+            </ul>
+        </li>
+  		<li><a href="">插件</a></li>
+  		<li><a href="">社区</a></li>
+  		<li><a href="">开发者</a></li>	
+  		<li><a href="">公司</a></li>	
+  	</ul>
+
+  </div>
+ </body>
+</html>

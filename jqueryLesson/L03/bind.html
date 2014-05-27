@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>trigger绑定事件</title>
+<script src="js/jquery-1.11.0.js" type="text/javascript"></script>
+<script type="text/javascript">
+	$(function(){
+		$("#btn").click(function(){
+			$("#search").trigger("submit");
+		})
+		})
+</script>
+ </head>
+ <body>
+   <form id="search" method="get" action="http://www.google.com.hk/#newwindow=1&q=">
+	 <input type="text" name="wd">
+	 <input type="button" id="btn" value="搜索" />
+   </form>
+   
+ </body>
+</html>

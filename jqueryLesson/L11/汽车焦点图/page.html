@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<title>carFocus</title>
+<style type="text/css">
+.focus { height: 480px; width: 930px; position: relative; background: #000; }
+.focus h2 { font: 20px "宋体"; color: #FFF; position: absolute; left: 688px; top: 413px; margin:0px; padding:0px;}
+ul { margin: 0px; padding: 0px; list-style: none; }
+img { border-width: 0px; }
+.bigPic{ width:930px; height:480px; overflow:hidden;}
+.blockDiv{ width:930px; height:100px; background-color:#000; position:absolute; left:0px; bottom:0px;}
+.smallPic img{ position:absolute; top:410px; border:3px solid #fff;}
+</style>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript">
+var n,c=0 , wid
+function autoPlay(){
+	c++
+	if(c>=n) c=0
+	$("#smallPic img").eq(c).stop(true,true).fadeTo(300,1)
+	$("#smallPic img").eq(c).parent().parent().siblings().children().children().fadeTo(300,0.4)
+	$("#bigPic li").hide()
+	$("#bigPic li").eq(c).fadeTo(300,1)
+	$("#focus h2").hide()
+	$("#focus h2").eq(c).fadeTo(300,1)
+}
+$(function(){
+	n = $("#bigPic img").size()
+	$("#smallPic img").css("left",function(i,v){ return i*86+30})
+	$("#smallPic img:gt(0)").fadeTo(0,0.4)
+	$(".blockDiv").fadeTo(0,0.8)
+	$("#bigPic li:gt(0)").hide()
+	$("#focus h2:gt(0)").hide()
+	$("#smallPic img").hover(
+		function(){
+			window.clearInterval(wid)
+			c=$(this).parent().parent().index()
+			$(this).stop(true,true).fadeTo(300,1)
+			$(this).parent().parent().siblings().children().children().fadeTo(300,0.4)
+			$("#bigPic li").hide()
+			$("#bigPic li").eq(c).fadeTo(300,1)
+			$("#focus h2").hide()
+			$("#focus h2").eq(c).fadeTo(300,1)
+		},function(){
+		wid = window.setInterval("autoPlay()",2000)
+		})
+	wid = window.setInterval("autoPlay()",2000)
+})
+
+</script>
+</head>
+<body>
+<div class="focus" id="focus">
+  <div class="bigPic" id="bigPic">
+    <ul>
+    	<li><a href="#"><img src="images/01.jpg" ></a></li>
+        <li><a href="#"><img src="images/02.jpg" ></a></li>
+        <li><a href="#"><img src="images/03.jpg" ></a></li>
+        <li><a href="#"><img src="images/04.jpg" ></a></li>
+        <li><a href="#"><img src="images/05.jpg" ></a></li>
+    </ul>
+  </div>
+  <div class="blockDiv"></div>
+  <h2>111111111111</h2>
+  <h2>222222222222</h2>
+  <h2>333333333333</h2>
+  <h2>444444444444</h2>
+  <h2>555555555555</h2>
+	<ul class="smallPic" id="smallPic">
+	  <li><a href="#"><img src="images/01.png" ></a></li>
+    	<li><a href="#"><img src="images/02.png" ></a></li>
+    	<li><a href="#"><img src="images/03.png" ></a></li>
+    	<li><a href="#"><img src="images/04.png" ></a></li>
+    	<li><a href="#"><img src="images/05.png" ></a></li>
+  	</ul>
+</div>
+</body>
+</html>

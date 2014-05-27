@@ -1,0 +1,98 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>网页标题</title>
+<style type="text/css">
+<!--
+.focus {
+	height: 200px;
+	width: 490px;
+	background-color: #000000;
+	position: relative;
+}
+img {
+	border-width: 0px;
+}
+.focus ul {
+	margin: 0px;
+	padding: 0px;
+	list-style: none;
+}
+.bigPic {
+	height: 170px;
+	width: 490px;
+	overflow: hidden;
+}
+.num li {
+	background-color: #FFFFFF;
+	height: 15px;
+	width: 15px;
+	font-size: 12px;
+	line-height: 15px;
+	text-align: center;
+	position: absolute;
+	top: 178px;
+	cursor:pointer;
+}
+.num li.current {
+	color: #FFFFFF;
+	background-color: #FF0000;
+}
+-->
+</style>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript">
+var n,c = 0,wid
+function autoPlay()//自动播放代码
+{
+	c++
+	if(c >= n) c=0
+	$("#num li").eq(c).addClass("current") //被点击的数字按钮变红 
+	$("#num li").eq(c).siblings().removeClass("current")//未被点击的数字按钮变白
+	$("#bigPic li").hide() //隐藏所有大图
+	$("#bigPic li").eq(c).fadeTo(300,1)//显示当前数组按钮对应的大图
+}
+
+$(function(){
+    n = $("#bigPic img").size() //求得大图总数
+	$("#num li").css("right", function(i,v){ return 18 * (n-i) + 10 }) //设置数字方块儿的横坐标
+	$("#num li").first().addClass("current") //第一个数字按钮变红
+	$("#num li").hover(function(){
+		 window.clearInterval(wid)//鼠标划入时清除定时队列
+	     $(this).addClass("current") //被点击的数字按钮变红 
+		 $(this).siblings().removeClass("current")//未被点击的数字按钮变白
+		 c = $(this).index() //取得当前点击的li的索引(从0起的)
+		 $("#bigPic li").hide() //隐藏所有大图
+		 $("#bigPic li").eq(c).fadeTo(300,1)//显示当前数组按钮对应的大图
+	},
+	function(){
+		wid = window.setInterval("autoPlay()",2000)//重启定时序列
+	})
+	wid = window.setInterval("autoPlay()",2000)//首次启动定时序列
+})
+</script>
+</head>
+
+<body>
+<div class="focus">
+   <div class="bigPic" id="bigPic">
+       <ul>
+		<li><a href="#"><img src="images/1.jpg" /></a></li>
+		<li><a href="#"><img src="images/2.jpg" /></a></li>
+		<li><a href="#"><img src="images/3.jpg" /></a></li>
+		<li><a href="#"><img src="images/4.jpg" /></a></li>
+		<li><a href="#"><img src="images/5.jpg" /></a></li>
+       </ul>
+   </div>
+   <ul id="num" class="num">
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+   </ul>
+</div>
+
+</body>
+</html>

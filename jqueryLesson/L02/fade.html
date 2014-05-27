@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+ <head>
+ <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+ <style type="text/css">
+	.box{width:728px;height:328px;border:solid 2px #00ccff;}
+	.box img{display:none;}
+ </style>
+  <title>fade</title>
+  <script src="js/jquery.js" type="text/javascript"></script>
+  <script type="text/javascript">
+  <!--
+	$(function(){
+		$("#btn1").click(function(){
+			$(".box img").fadeIn(300);
+		})
+		$("#btn2").click(function(){
+			$(".box img").fadeOut(300);
+		})
+		$("#btn3").click(function(){
+			$(".box img").fadeToggle("slow");
+		})
+	})
+  //-->
+  </script>
+ </head>
+ <body>
+  <div class="box">
+	<img src="images/b3.jpg" />
+  </div>
+  <input type="button" value="淡入" id="btn1"/>
+  <input type="button" value="淡出" id="btn2"/>
+  <input type="button" value="淡入/淡出" id="btn3"/>
+ </body>
+</html>

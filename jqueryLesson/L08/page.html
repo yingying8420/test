@@ -1,0 +1,77 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<style type="text/css">
+<!--
+.item { height: 217px; width: 300px; }
+.item ul { margin: 0px; padding: 0px; list-style: none; }
+.tabs { height: 27px; width: 280px; padding-left: 20px; background-image: url(images/line.gif); background-repeat: repeat-x; background-position: left bottom; }
+.tabs li { float: left; position: relative; }
+.tabs a { display: block; height: 27px; width: 64px; background-image: url(images/btns.gif); font-size: 12px; text-decoration: none; line-height: 26px; text-align: center; color: #003399; }
+.tabs a.current { background-image: url(images/currentBtn.gif); }
+.hide { display: none; }
+.content { height: 159px; width: 268px; clear: both; border-right: 1px solid #88AAC3; border-bottom: 1px solid #88AAC3; border-left: 1px solid #88AAC3; background-color: #F2F6FB; font-size: 12px; padding: 15px; }
+.content li { background-image: url(images/square.gif); background-repeat: no-repeat; background-position: left center; line-height: 22px; padding-left: 10px; }
+.content li a { text-decoration: none; color: #006699; }
+
+a,area {blr:expression(this.onFocus=this.blur()) } /**IE下没有虚线框**/
+:focus {outline-style: none; } 
+-->
+</style>
+<title>选项卡</title>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript">
+$(function(){
+	var c
+	$("#tabs li").css("right",function(i,v){return i})
+	$("#tabs li a").click(function(){
+		$(this).addClass("current")
+		$(this).parent().siblings().children().removeClass("current")
+		c = $(this).parent().index()
+		$("#content ul").hide()
+		$("#content ul").eq(c).show()
+	})
+})
+</script>
+</head>
+
+<body>
+<div class="item" id="item">
+  <div class="tabs" id="tabs">
+    <ul>
+      <li><a href="#" class="current">资讯</a></li>
+      <li><a href="#">教育</a></li>
+      <li><a href="#">娱乐</a></li>
+    </ul>
+  </div>
+  <div class="content" id="content">
+    <ul>
+      <li><a href="#">闾丘露薇解释为何转发便溺视频：舆情很不敏感</a></li>
+      <li><a href="#"> 网曝李双江近照：参加同行聚会 拍手展笑颜(图)</a></li>
+      <li><a href="#"> 白宫回应美国第一夫人未出访日本：女儿在上学</a></li>
+      <li><a href="#"> 乌鲁木齐昨日22℃今天暴雪 西北多地现最强沙尘</a></li>
+      <li><a href="#"> 热点解读：社交媒体上的乌克兰“革命战场” </a></li>
+      <li><a href="#"> 白宫回应美国第一夫人未出访日本：女儿在上学</a></li>
+      <li><a href="#"> 乌鲁木齐昨日22℃今天暴雪 西北多地现最强沙尘</a></li>
+    </ul>
+    <ul class="hide">
+      <li><a href="#">北大教授：有些抹黑共产党的人恰就是共产党员 </a></li>
+      <li><a href="#"> 四川泸州闹市商场起火 浓烟罩城伤亡不详(图)</a></li>
+      <li><a href="#"> 多户口人物大盘点：非富即贵 还有分身术</a></li>
+      <li><a href="#"> 41位退休高官任市值100强上市公司</a></li>
+      <li><a href="#"> 招商局原总裁傅育宁接替宋林出任</a></li>
+    </ul>
+    <ul class="hide">
+      <li><a href="#"> 多户口人物大盘点：非富即贵 还有分身术</a></li>
+      <li><a href="#"> 41位退休高官任市值100强上市公名单)</a></li>
+      <li><a href="#"> 招商局原总裁傅育宁接替宋林出任董事长</a></li>
+      <li><a href="#">北大教授：有些抹黑共产党的人恰就是共产党员 </a></li>
+      <li><a href="#"> 四川泸州闹市商场起火 浓烟罩城伤亡不详(图)</a></li>
+      <li><a href="#">北大教授：有些抹黑共产党的人恰就是共产党员 </a></li>
+      <li><a href="#"> 四川泸州闹市商场起火 浓烟罩城伤亡不详(图)</a></li>
+    </ul>
+  </div>
+</div>
+</body>
+</html>

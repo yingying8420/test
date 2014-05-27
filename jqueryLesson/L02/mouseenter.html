@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+ <head>
+ <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+ <style type="text/css">
+	.box{width:728px;height:328px;border:solid 2px #00ccff;display:none;}
+ </style>
+  <title>Mouseenter</title>
+  <script src="js/jquery.js" type="text/javascript"></script>
+  <script type="text/javascript">
+  <!--
+	$(function(){
+		$("#p1").mouseenter(function(){
+			$(".box").slideDown(300);
+		})
+		$(".box").mouseleave(function(){
+			$(".box").slideUp(300);
+		})
+		$("#btn3").click(function(){
+			$(".box").slideToggle(300);
+		})
+	})
+  //-->
+  </script>
+ </head>
+ <body>
+	<p id="p1">滑过我试试</p>
+  <div class="box">
+	<img src="images/b3.jpg" />
+  </div>
+  <input type="button" value="下拉" id="btn1"/>
+  <input type="button" value="收起" id="btn2"/>
+  <input type="button" value="下拉/收起" id="btn3"/>
+ </body>
+</html>

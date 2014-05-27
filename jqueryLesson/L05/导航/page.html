@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<style type="text/css">
+.nav { background: url(images/bg1.gif) repeat-x bottom; height: 31px; width: 600px; padding-left: 30px; }
+.nav ul { margin: 0px; padding: 0px; list-style: none; }
+.nav li{ float:left; padding-left:20px;}
+.nav li a {font: 12px/31px Verdana, Arial, Helvetica, sans-serif; height:31px; display:block; padding-left:6px; color:#666; text-decoration:none;}
+.nav li a span{ display:block; padding:0 16px 0 10px;}
+.nav li a.current{ background:url(images/left.gif) no-repeat;}
+.nav li a.current span{background:url(images/right.gif) no-repeat right;}
+</style>
+<meta charset="utf-8">
+<title>导航</title>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript">
+$(function(){
+	$("#nav li a").hover(function(){
+		$(this).blur();//IE下去除焦点
+		$(this).addClass("current")//给自己加current类
+		$(this).parent().siblings().children().removeClass("current");//从父亲找叔叔的儿子
+	})	
+})
+</script>
+</head>
+<body>
+<div class="nav" id="nav">
+	<ul>
+	  <li><a href="#" class="current"><span>Project</span></a></li>
+	  <li><a href="#"><span>Home</span></a></li>
+	  <li><a href="#"><span>Down</span></a></li>
+	  <li><a href="#"><span>Wiki</span></a></li>
+	  <li><a href="#"><span>Issues</span></a></li>
+	  <li><a href="#"><span>Source</span></a></li>
+  </ul>
+</div>
+</body>
+</html>

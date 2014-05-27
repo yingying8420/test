@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>表单特效</title>
+<style type="text/css">
+<!--
+#s {width:600px; position:relative;}
+.btn {position:absolute;top:0px;right:0px}
+#key { padding-left: 5px; width:200px;height:30px;border:0;outline:none; line-height: 30px;position:absolute;right:32px;top:0px;background-image: url(images/bg.gif);color:#aaa;}
+#s input.key2{color:#ff00ff;}
+-->
+</style>
+<script src="js/jquery.js" type="text/javascript"></script>
+<script type="text/javascript">
+<!--
+$(function(){
+    $("#key").focus( function(){
+	    $(this).animate({"width":260},300)
+	})
+	$("#key").blur( function(){
+	    $(this).animate({"width":200},300)
+	})
+})
+$(function(){
+		$("#key").focus(function(){
+			if($(this).val() == this.defaultValue){
+				$(this).val("");
+				$(this).addClass("key2");
+			}
+		})
+		$("#key").blur(function(){
+			if($(this).val() == ""){
+				$(this).val(this.defaultValue);
+				$(this).removeClass("key2");
+			}
+		})
+	})
+//-->
+</script>
+</head>
+
+<body>
+<div id="s">
+   <form name="" method="post" action="">
+	<input type="text" class="key1" id="key" value="请输入内容......"/>
+	<input type="image" src="images/btn.gif" class="btn" />
+   </form>
+</div>
+</body>
+</html>

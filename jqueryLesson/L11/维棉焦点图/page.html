@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+<head>
+<title>weimian</title>
+<style type="text/css">
+<!--
+.focus{ width:780px; height:410px; position:relative;}
+img{ border-width:0px;}
+.focus ul{margin:0px; padding:0px; list-style-type:none;}
+.bigPic{ width:780px; height:347px; overflow:hidden;}
+.smallPic li{ width:147px; height:57px; position:absolute; top:337px; background-image:url(images/focus_ar.gif); padding-top:17px; padding-left:8px;}
+.smallPic li.current{ background-position:0px -73px;}
+-->
+</style>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript">
+var n,c = 0 , wid
+function autoPlay(){
+	c++
+	if(c>=n) c=0
+	$("#smallPic li").eq(c).addClass("current")
+	$("#smallPic li").eq(c).siblings().removeClass("current")
+	$("#bigPic li").hide()
+	$("#bigPic li").eq(c).fadeTo(300,1)
+}
+$(function(){
+	n = $("#bigPic img").size()
+	$("#smallPic li").css("left",function(i,v){ return i* 156})
+	$("#bigPic li:gt(0)").hide()
+	$("#smallPic li").first().addClass("current")
+	$("#smallPic li").hover(function(){
+		window.clearInterval(wid)
+		$(this).addClass("current")
+		$(this).siblings().removeClass("current")
+		c = $(this).index()
+		$("#bigPic li").hide()
+		$("#bigPic li").eq(c).fadeTo(300,1)
+		
+	},function(){
+		wid = window.setInterval("autoPlay()",3000)
+	})
+	wid = window.setInterval("autoPlay()",3000)
+})
+
+
+</script>
+</head>
+<body>
+<div class="focus" id="focus">
+  <div class="bigPic" id="bigPic">
+    <ul>
+      <li><a href="#"><img src="images/6183.jpg" ></a></li>
+      <li><a href="#"><img src="images/6171.jpg" ></a></li>
+      <li><a href="#"><img src="images/6100.jpg" ></a></li>
+      <li><a href="#"><img src="images/4634.jpg" ></a></li>
+      <li><a href="#"><img src="images/3313.jpg" ></a></li>
+    </ul>
+  </div>
+  <ul class="smallPic" id="smallPic">
+      <li><a href="#"><img src="images/6184.jpg" ></a></li>
+      <li><a href="#"><img src="images/6172.jpg" ></a></li>
+      <li><a href="#"><img src="images/6141.jpg" ></a></li>
+      <li><a href="#"><img src="images/4635.jpg" ></a></li>
+      <li><a href="#"><img src="images/3223.jpg" ></a></li>
+    </ul>
+</div>
+</body>
+</html>
